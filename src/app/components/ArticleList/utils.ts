@@ -1,5 +1,19 @@
 import { Article } from "../../types"
 
+export function filterByDomain(filter: string, articles: Article[]) {
+	if (!filter) {
+		return articles
+	}
+
+	return articles.filter(article => {
+		if (!!article.domain && article.domain.includes(filter)) {
+			return true
+		}
+
+		return false
+	})
+}
+
 export function sortByPoints(a: Article, b: Article) {
 	if (a.points == null) {
 		return 1
