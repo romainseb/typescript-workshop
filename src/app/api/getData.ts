@@ -1,6 +1,6 @@
-import { ArticleProp } from "../types"
+import { Article } from "../types"
 
-export async function getData(): Promise<ArticleProp[]> {
+export async function getData(): Promise<Article[]> {
 	const fetchOptions = {
 		method: "GET",
 		headers: new Headers({
@@ -11,5 +11,5 @@ export async function getData(): Promise<ArticleProp[]> {
 	var myRequest = new Request("/api/mock-articles", fetchOptions)
 	const result = await fetch(myRequest)
 	const data = await result.json()
-	return data as ArticleProp[]
+	return data as Article[]
 }

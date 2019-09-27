@@ -1,6 +1,6 @@
-import { ArticleProp } from "../../types"
+import { Article } from "../../types"
 
-export function sortByPoints(a: ArticleProp, b: ArticleProp) {
+export function sortByPoints(a: Article, b: Article) {
 	if (a.points == null) {
 		return 1
 	}
@@ -10,7 +10,7 @@ export function sortByPoints(a: ArticleProp, b: ArticleProp) {
 	return b.points - a.points
 }
 
-export function sortByComments(a: ArticleProp, b: ArticleProp) {
+export function sortByComments(a: Article, b: Article) {
 	if (a.comments_count == null) {
 		return 1
 	}
@@ -20,6 +20,6 @@ export function sortByComments(a: ArticleProp, b: ArticleProp) {
 	return b.comments_count - a.comments_count
 }
 
-export function sortByUser(a: ArticleProp, b: ArticleProp) {
+export function sortByUser(a: Article, b: Article) {
 	return a.user.localeCompare(b.user)
 }

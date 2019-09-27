@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import { faComments as faRegularComments } from "@fortawesome/free-regular-svg-icons"
 
-import { ArticleProp, UnknownNumber } from "../../types"
+import { Article, MaybeNumber } from "../../types"
 import {
 	ArticleContainer,
 	ArticleIcon,
@@ -18,20 +18,20 @@ import {
 	Separator,
 	SubTitleRow,
 	TitleRow
-} from "./Article.style"
+} from "./ArticleItem.style"
 
 type ArticleProps = {
-	article: ArticleProp
+	article: Article
 }
 
-function isNumber(number: UnknownNumber) {
+function isNumber(number: MaybeNumber) {
 	if (number === undefined || number === null) {
 		return false
 	}
 	return !isNaN(number)
 }
 
-export const Article: React.SFC<ArticleProps> = ({ article }) => {
+export const ArticleItem: React.SFC<ArticleProps> = ({ article }) => {
 	const commentsIcon = isNumber(article.comments_count)
 		? faComments
 		: faRegularComments

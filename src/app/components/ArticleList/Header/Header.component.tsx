@@ -3,7 +3,7 @@ import { Col } from "react-styled-flexboxgrid"
 import styled from "@emotion/styled"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faTalend } from "../faTalend/faTalend"
+import { faTalend } from "./faTalend/faTalend"
 
 const StyledIcon = styled(FontAwesomeIcon)`
 	padding-right: 10px;

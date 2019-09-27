@@ -2,14 +2,14 @@ import React, { useState } from "react"
 import styled from "@emotion/styled"
 import { useAsyncEffect } from "../../../tools"
 import { getData } from "../../api/getData"
-import { Article } from "../Article"
-import { ArticleProp } from "../../types"
-import { Header } from "../Header"
+import { ArticleItem } from "../ArticleItem"
+import { Article } from "../../types"
+import { Header } from "./Header"
 import { SortBy } from "../SortBy"
 import { sortByPoints, sortByUser, sortByComments } from "./utils"
 
 const filterDictionary: {
-	[index: string]: (a: ArticleProp, b: ArticleProp) => number
+	[index: string]: (a: Article, b: Article) => number
 } = {
 	points: sortByPoints,
 	user: sortByUser,
@@ -22,9 +22,9 @@ const ResultLabel = styled.div`
 	font-size: 18px;
 `
 
-export const Articles = () => {
-	const [articles, setArticles] = useState<ArticleProp[]>([])
-	const [sort, setSort] = useState<keyof ArticleProp>("points")
+export const ArticleList = () => {
+	const [articles, setArticles] = useState<Article[]>([])
+	const [sort, setSort] = useState<keyof Article>("points")
 
 	const currentSort = filterDictionary[sort]
 
@@ -39,7 +39,7 @@ export const Articles = () => {
 			<SortBy sort={sort} setSort={setSort}></SortBy>
 			<ResultLabel>Results :</ResultLabel>
 			{articles.sort(currentSort).map(article => (
-				<Article key={article.id} article={article} />
+				<ArticleItem key={article.id} article={article} />
 			))}
 		</>
 	)

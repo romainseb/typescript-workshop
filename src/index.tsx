@@ -9,7 +9,7 @@ import {
 	bootstrapRedux
 } from "@talend/react-cmf/lib/bootstrap"
 import "./index.css"
-import { Router } from "./app/Router"
+import { Home } from "./app/Home"
 
 /**
  * Bootstrap your cmf app
@@ -30,7 +30,7 @@ export default function bootstrap(appOptions = {}) {
 	saga.run()
 	render(
 		<Provider store={store}>
-			<Router />
+			<Home />
 		</Provider>,
 		document.getElementById(appId)
 	)

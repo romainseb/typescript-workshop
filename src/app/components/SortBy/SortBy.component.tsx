@@ -6,8 +6,8 @@ import {
 	faComments,
 	faUserCircle
 } from "@fortawesome/free-solid-svg-icons"
-import { IconButton } from "../IconButton"
-import { ArticleProp } from "../../types"
+import { IconButton } from "./IconButton"
+import { Article } from "../../types"
 
 const Buttons = styled(Col)`
 	color: #989898;
@@ -20,8 +20,8 @@ const SortByLabel = styled.div`
 `
 
 type SortByProps = {
-	setSort: <T extends keyof ArticleProp>(sort: T) => void
-	sort: keyof ArticleProp
+	setSort: <T extends keyof Article>(sort: T) => void
+	sort: keyof Article
 }
 
 export const SortBy: React.SFC<SortByProps> = ({ setSort, sort }) => {

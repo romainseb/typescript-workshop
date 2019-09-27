@@ -5,16 +5,16 @@ enum EnumArticleType {
 	ask = "ask"
 }
 
-export type UnknownNumber = number | null | undefined
+export type MaybeNumber = number | null | undefined
 
-export type ArticleProp = {
+export type Article = {
 	id: number
 	title: string
-	points: UnknownNumber
+	points: MaybeNumber
 	user: string
 	time: number
 	time_ago: string
-	comments_count: UnknownNumber
+	comments_count?: number
 	type: EnumArticleType
 	url: string
 	domain?: string
