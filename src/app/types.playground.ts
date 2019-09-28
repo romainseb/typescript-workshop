@@ -1,7 +1,6 @@
-import * as Router from "koa-router"
-import { ParameterizedContext } from "koa"
+import { Article } from "./types"
 
-export const articles = [
+export const articles: Article[] = [
 	{
 		id: 20949974,
 		title:
@@ -385,9 +384,3 @@ export const articles = [
 		domain: "quora.com"
 	}
 ]
-
-export const getMockArticles = async (
-	ctx: ParameterizedContext<any, Router.IRouterParamContext<any, {}>>
-) => {
-	ctx.body = articles
-}
