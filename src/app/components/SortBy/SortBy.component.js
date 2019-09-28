@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { Col, Row } from "react-styled-flexboxgrid"
 import styled from "@emotion/styled"
 import {
@@ -7,7 +8,6 @@ import {
 	faUserCircle
 } from "@fortawesome/free-solid-svg-icons"
 import { IconButton } from "./IconButton"
-import { Article } from "../../types"
 
 const Buttons = styled(Col)`
 	color: #989898;
@@ -19,12 +19,7 @@ const SortByLabel = styled.div`
 	padding: 15px 0;
 `
 
-type SortByProps = {
-	setSort: <T extends keyof Article>(sort: T) => void
-	sort: keyof Article
-}
-
-export const SortBy: React.SFC<SortByProps> = ({ setSort, sort }) => {
+export const SortBy = ({ setSort, sort }) => {
 	return (
 		<Buttons lg={4}>
 			<SortByLabel>Sort By :</SortByLabel>
@@ -53,4 +48,9 @@ export const SortBy: React.SFC<SortByProps> = ({ setSort, sort }) => {
 			</Row>
 		</Buttons>
 	)
+}
+
+SortBy.propTypes = {
+	setSort: PropTypes.func.isRequired,
+	sort: PropTypes.string
 }

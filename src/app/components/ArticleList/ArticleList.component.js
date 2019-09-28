@@ -3,14 +3,11 @@ import styled from "@emotion/styled"
 import { useAsyncEffect } from "../../../tools"
 import { getData } from "../../api/getData"
 import { ArticleItem } from "../ArticleItem"
-import { Article } from "../../types"
 import { Header } from "./Header"
 import { SortBy } from "../SortBy"
 import { sortByPoints, sortByUser, sortByComments } from "./utils"
 
-const filterDictionary: {
-	[index: string]: (a: Article, b: Article) => number
-} = {
+const filterDictionary = {
 	points: sortByPoints,
 	user: sortByUser,
 	comments_count: sortByComments
@@ -23,8 +20,8 @@ const ResultLabel = styled.div`
 `
 
 export const ArticleList = () => {
-	const [articles, setArticles] = useState<Article[]>([])
-	const [sort, setSort] = useState<keyof Article>("points")
+	const [articles, setArticles] = useState([])
+	const [sort, setSort] = useState("points")
 
 	const currentSort = filterDictionary[sort]
 

@@ -19,11 +19,14 @@ import {
 	SubTitleRow,
 	TitleRow
 } from "./ArticleItem.style"
+// import types
 
+// typings on the parameter
 function isNumber(number) {
 	return !isNaN(number)
 }
 
+// Typings for the component
 export const ArticleItem = ({ article }) => {
 	const commentsIcon = isNumber(article.comments_count)
 		? faComments
@@ -61,6 +64,7 @@ export const ArticleItem = ({ article }) => {
 	)
 }
 
+// Remove proptypes
 ArticleItem.propTypes = {
 	article: PropTypes.shape({
 		comments_count: PropTypes.number,
