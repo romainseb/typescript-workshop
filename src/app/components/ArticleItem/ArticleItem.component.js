@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { Col } from "react-styled-flexboxgrid"
 import {
 	faArrowCircleUp,
@@ -9,7 +10,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import { faComments as faRegularComments } from "@fortawesome/free-regular-svg-icons"
 
-import { Article, MaybeNumber } from "../../types"
 import {
 	ArticleContainer,
 	ArticleIcon,
@@ -20,18 +20,11 @@ import {
 	TitleRow
 } from "./ArticleItem.style"
 
-type ArticleProps = {
-	article: Article
-}
-
-function isNumber(number: MaybeNumber) {
-	if (number === undefined || number === null) {
-		return false
-	}
+function isNumber(number) {
 	return !isNaN(number)
 }
 
-export const ArticleItem: React.SFC<ArticleProps> = ({ article }) => {
+export const ArticleItem = ({ article }) => {
 	const commentsIcon = isNumber(article.comments_count)
 		? faComments
 		: faRegularComments
@@ -66,4 +59,15 @@ export const ArticleItem: React.SFC<ArticleProps> = ({ article }) => {
 			</SubTitleRow>
 		</ArticleContainer>
 	)
+}
+
+ArticleItem.propTypes = {
+	article: PropTypes.shape({
+		comments_count: PropTypes.number,
+		points: PropTypes.number,
+		url: PropTypes.string.isRequired,
+		time_ago: PropTypes.string.isRequired,
+		user: PropTypes.string.isRequired,
+		title: PropTypes.string.isRequired
+	}).isRequired
 }
