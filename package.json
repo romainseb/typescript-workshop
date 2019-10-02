@@ -51,6 +51,7 @@
 	"scripts": {
 		"start:server": "cd server && ts-node-dev --respawn --transpileOnly ./index.ts",
 		"start:app": "react-scripts start",
+		"build": "react-scripts build",
 		"start": "run-p --race start:server start:app",
 		"test:cov": "jest --coverage --silent",
 		"test": "jest --silent"

@@ -11,6 +11,9 @@ import {
 import "./index.css"
 import { Home } from "./app/Home"
 
+import * as playground from "./app/types.playground"
+import * as playground2 from "./app/types2.playground"
+
 /**
  * Bootstrap your cmf app
  * It takes your configuration and provides a very good default one.
